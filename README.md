@@ -10,7 +10,7 @@ Sistema desenvolvido em Java para gerenciamento de agendamentos em clínicas mé
 
 ## 🏗️ Estrutura do Projeto
 
-SistemaAgendamentoConsultas/
+```SistemaAgendamentoConsultas/
 └── src/
     ├── Atendente.java
     ├── Consulta.java
@@ -18,6 +18,7 @@ SistemaAgendamentoConsultas/
     ├── Medico.java
     ├── Paciente.java
     └── SistemaClinica.java
+```
 
 
 ## 🚀 Funcionalidades
