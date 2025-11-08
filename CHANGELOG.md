@@ -1,6 +1,6 @@
 # Changelog
 
-## [1.0] - 2025-XX-XX
+## [1.0] - 08-11-2025
 ### Adicionado
 - Classes básicas: Paciente, Funcionario, Atendente, Medico, Consulta
 - Menu inicial com 4 opções principais
