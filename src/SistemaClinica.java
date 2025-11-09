@@ -18,11 +18,12 @@ public class SistemaClinica {
         do {
             limparTerminal();
 
-            System.out.println("=== SISTEMA CLINICA - VERSAO 1.0 ===");
+            System.out.println("=== SISTEMA CLINICA - VERSAO 1.1 ===");
             System.out.println("\n1 - Cadastrar Paciente");
             System.out.println("2 - Cadastrar Atendente");
             System.out.println("3 - Cadastrar Medico");
             System.out.println("4 - Realizar Agendamento");
+            System.out.println("5 - Visualizar Cadastros");
             System.out.println("0 - Sair");
             System.out.print("\nEscolha uma opcao: ");
             
@@ -42,6 +43,9 @@ public class SistemaClinica {
                 case 4:
                     realizarAgendamento();
                     break;
+                case 5:
+                    listarCadastros();
+                    break;
                 case 0:
                     System.out.println("Saindo do sistema...");
                     break;
@@ -53,7 +57,7 @@ public class SistemaClinica {
 
         } while (opcao != 0);
     }
-    
+
     private static void cadastrarPaciente() {
         limparTerminal();
         System.out.println("--- CADASTRO DE PACIENTE ---");
@@ -321,6 +325,101 @@ public class SistemaClinica {
                         medicoSelecionado.getNome() + " em " + data + " às " + horario);
         System.out.println("Atendente responsável: " + atendenteSelecionado.getNome());
         System.out.println("\nPressione Enter para continuar...");
+        scanner.nextLine();
+    }
+
+    private static void listarCadastros() {
+        limparTerminal();
+        System.out.println("--- LISTA DE CADASTROS ---\n");
+            System.out.println("1 - Pacientes Cadastrados");
+            System.out.println("2 - Atendentes Cadastrados");
+            System.out.println("3 - Médicos Cadastrados");
+            System.out.println("4 - Consultas Agendadas");
+            System.out.println("0 - Voltar ao Menu Principal");
+            System.out.print("\nEscolha uma opcao: ");
+
+            int opcao = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opcao) {
+                case 1:
+                    listarPacientes();
+                    break;
+                case 2:
+                    listarAtendentes();
+                    break;
+                case 3:
+                    listarMedicos();
+                    break;
+                case 4:
+                    listarConsultas();
+                    break;
+                case 0:
+                    System.out.println("Voltando ao Menu Principal...");
+                    break;
+                default:
+                System.out.println("\nOpcao invalida!");
+                System.out.println("Pressione Enter para continuar...");
+                scanner.nextLine();
+
+            }
+    }
+
+    private static void listarPacientes() {
+        limparTerminal();
+        System.out.println("\nPacientes Cadastrados:\n");
+
+        if (pacientes.isEmpty()) {
+            System.out.println("Nenhum paciente cadastrado.");
+        } else {
+            for (int i = 0; i < pacientes.size(); i++) {
+                System.out.println("Paciente " + (i + 1) + "\nNome: " + pacientes.get(i).getNome() + "\nCPF: " + pacientes.get(i).getCpf() + "\nTelefone: " + pacientes.get(i).getTelefone() + "\n");
+            }
+            }
+        System.out.println("\nPressione Enter para voltar...");
+        scanner.nextLine();
+        }
+
+    private static void listarAtendentes() {
+        limparTerminal();
+        System.out.println("\nAtendentes Cadastrados:\n");
+        if (atendentes.isEmpty()) {
+            System.out.println("Nenhum atendente cadastrado.");
+        } else {
+            for (int i = 0; i < atendentes.size(); i++) {
+                System.out.println("Atendente " + (i + 1) + "\nNome: " + atendentes.get(i).getNome() + "\nCPF: " + atendentes.get(i).getCpf() + "\nMatrícula: " + atendentes.get(i).getMatricula() + "\n");
+            }
+        
+        System.out.println("\nPressione Enter para voltar...");
+        scanner.nextLine();
+        }
+    }
+
+    private static void listarMedicos() {
+        limparTerminal();
+        System.out.println("\nMédicos Cadastrados:\n");
+        if (medicos.isEmpty()) {
+            System.out.println("Nenhum médico cadastrado.");
+        } else {
+            for (int i = 0; i < medicos.size(); i++) {
+                System.out.println("Médico " + (i + 1) + "\nNome: " + medicos.get(i).getNome() + "\nCPF: " + medicos.get(i).getCpf() + "\nCRM: " + medicos.get(i).getCrm() + "\nEspecialidade: " + medicos.get(i).getEspecialidade() + "\n");
+            }
+        }
+        System.out.println("\nPressione Enter para voltar...");
+        scanner.nextLine();
+    }
+
+    private static void listarConsultas() {
+        limparTerminal();
+        System.out.println("\nConsultas Agendadas:\n");
+        if (consultas.isEmpty()) {
+            System.out.println("Nenhuma consulta agendada.");
+        } else {
+            for (int i = 0; i < consultas.size(); i++) {
+                System.out.println("Consulta " + (i + 1) + "\nPaciente: " + consultas.get(i).getPaciente().getNome() + "\nAtendente: " + consultas.get(i).getAtendente().getNome() + "\nMédico: " + consultas.get(i).getMedico().getNome() + "\nData: " + consultas.get(i).getData() + "\nHorário: " + consultas.get(i).getHorario() + "\n");
+            }
+        }
+        System.out.println("\nPressione Enter para voltar...");
         scanner.nextLine();
     }
 
