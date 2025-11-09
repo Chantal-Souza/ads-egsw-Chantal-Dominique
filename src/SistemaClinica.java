@@ -57,7 +57,7 @@ public class SistemaClinica {
 
         } while (opcao != 0);
     }
-
+    
     private static void cadastrarPaciente() {
         limparTerminal();
         System.out.println("--- CADASTRO DE PACIENTE ---");
