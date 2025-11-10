@@ -1,10 +1,10 @@
-class Consulta {
+public class Consulta {
     private Paciente paciente;
     private Atendente atendente;
     private Medico medico;
     private String data;
     private String horario;
-    
+
     public Consulta(Paciente paciente, Atendente atendente, Medico medico, String data, String horario) {
         this.paciente = paciente;
         this.atendente = atendente;
@@ -12,10 +12,33 @@ class Consulta {
         this.data = data;
         this.horario = horario;
     }
-    
-    public Paciente getPaciente() { return paciente; }
-    public Atendente getAtendente() { return atendente; }
-    public Medico getMedico() { return medico; }
-    public String getData() { return data; }
-    public String getHorario() { return horario; }
+
+    public Paciente getPaciente() {
+        return paciente;
+    }
+
+    public Atendente getAtendente() {
+        return atendente;
+    }
+
+    public Medico getMedico() {
+        return medico;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public String getHorario() {
+        return horario;
+    }
+
+    @Override
+    public String toString() {
+        return "Consulta:\n" +
+               "Paciente: " + paciente.getNome() + "\n" +
+               "Médico: " + medico.getNome() + " (" + medico.getEspecialidade() + ")\n" +
+               "Atendente: " + atendente.getNome() + "\n" +
+               "Data: " + data + "\nHorário: " + horario + "\n";
+    }
 }
